@@ -1,8 +1,7 @@
-let a = 2;
-let b = 3;
+import ArrecadacaoDAO from './model/dao/ArrecadacaoDAO';
 
-let soma = (n1, n2) => n1 + n2;
+let dao = new ArrecadacaoDAO();
 
-let  resultado = soma(a, b);
+let municipios = dao.carregarArrecadacoesDosMunicipios();
 
-console.log(resultado);
+console.log(municipios);
