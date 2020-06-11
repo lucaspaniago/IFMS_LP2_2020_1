@@ -42,3 +42,4 @@ export default class ArrecadacaoDAO {
         return municipios;
     }
 }
+
