@@ -13,7 +13,7 @@ const controller = {
     }),
 
     recuperarPorEndereco: async (enderecoConsulta) => await Pessoa.find({
-        nome: {
+        endereco: {
             '$regex': enderecoConsulta,
             '$options': 'i' //Ignora letras maiúsculas e minúsculas
         }

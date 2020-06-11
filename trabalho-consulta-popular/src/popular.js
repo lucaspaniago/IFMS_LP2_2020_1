@@ -2,11 +2,14 @@ import * as db from "./config/db";
 import pessoaController from './controllers/PessoaController';
 import faker from 'faker/locale/pt_BR';
 
-export const cadastrarPessoas = () => {
+export const cadastrarPessoas = async () => {
     
-    let clientes = [];
+    //let clientes = [];
+    db.conectarBD();
     
-    const QUANTIDADE_PESSOAS = 2;
+    let pessoas = [];
+
+    const QUANTIDADE_PESSOAS = 200;
 
     for(let i = 0; i < QUANTIDADE_PESSOAS; i++) {
         const pessoa = {
@@ -16,6 +19,11 @@ export const cadastrarPessoas = () => {
             endereco: faker.address.streetAddress()
         };
 
-        clientes.push(pessoa);
+        //await pessoaController.cadastrar(pessoa);
+        pessoas.push(pessoa);
     }
+
+    await pessoaController.cadastrar(pessoas);
+
+    db.desconectarBD();
 }
